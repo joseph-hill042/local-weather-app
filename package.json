@@ -2,6 +2,7 @@
   "name": "local-weather-app",
   "version": "1.0.0",
   "scripts": {
+    "standardize": "prettier '**/*.ts' --write",
     "ng": "ng",
     "start": "ng serve --port 5000 --open",
     "build": "ng build",

@@ -2,9 +2,13 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
-};
+const environment = {
+  production: false,
+  APPID: 'c84fb35cf692c51037d9e93ac726550a',
+  baseUrl: 'http://',
+}
+
+export const { APPID, baseUrl, production } = environment
 
 /*
  * In development mode, to ignore zone related error stack frames such as
