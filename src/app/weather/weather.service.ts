@@ -65,9 +65,11 @@ export class WeatherService implements IWeatherService {
     country?: string
   ): Observable<ICurrentWeather> {
     let uriParams = ''
-    if (typeof search === 'string') {
+    if (isNaN(+search)) {
+      console.log('Searching with string...')
       uriParams = `q=${search}`
     } else {
+      console.log('Searching by zip...')
       uriParams = `zip=${search}`
     }
 
