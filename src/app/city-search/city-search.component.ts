@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
 import { WeatherService } from '../weather/weather.service'
 import { debounceTime } from 'rxjs/operators'
+import { FormErrorService } from '../forms/form-error.service'
 
 @Component({
   selector: 'app-city-search',
@@ -9,7 +10,7 @@ import { debounceTime } from 'rxjs/operators'
   styleUrls: ['./city-search.component.css'],
 })
 export class CitySearchComponent implements OnInit {
-  search = new FormControl('', [Validators.minLength(2), Validators.email])
+  search = new FormControl('', [Validators.minLength(2)])
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
@@ -29,7 +30,6 @@ export class CitySearchComponent implements OnInit {
   }
 
   getErrorMessage() {
-    const errors = this.search.errors
-    console.log(errors)
+    return FormErrorService.getErrorMessage(this.search)
   }
 }
