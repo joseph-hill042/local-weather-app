@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { ICurrentWeather } from './interfaces'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core'
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'app'
+  currentWeather: ICurrentWeather
+  constructor() {}
+
+  doSearch(weatherSearch) {
+    this.currentWeather = weatherSearch
+  }
 }
